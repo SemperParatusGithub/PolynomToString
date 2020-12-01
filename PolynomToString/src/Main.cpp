@@ -10,14 +10,14 @@ std::string GetPolynomString(Args ... args)
 
 	std::stringstream ss;
 	ss << "f(x) = ";
-	auto LogMessage = [&](const auto &singleArg)
+	auto LogExponent = [&](const auto &singleArg)
 	{
 		if(exp != s -1)
 			ss << (singleArg < 0 ? " - " : " + ");
 		ss << std::to_string(std::abs(singleArg)) << "*x^" << exp; 
 		exp--; 
 	};
-	(..., LogMessage(std::forward<Args>(args)));
+	(..., LogExponent(std::forward<Args>(args)));
 
 	return ss.str();
 }
